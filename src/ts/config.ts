@@ -1,0 +1,1 @@
+export const MOUSE_OVER_ANIM_STRENGTH = 45;

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:image" content="src/img/main-link_bg.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="My Portfolio" />
+    <meta property="og:description" content="See my portfolio :)" />
+    <meta property="og:url" content="https://bestportfolioweb.netlify.app" />
+    <link rel="stylesheet" href="/src/css/style.css" />
+    <link rel="stylesheet" href="/src/css/animations.css" />
+    <link rel="stylesheet" href="/src/css/general.css" />
+    <link rel="stylesheet" href="/src/css/queries.css" />
+    <link rel="apple-touch-icon" href="src/img/main-icon.png" />
+    <link rel="icon" href="src/img/main-icon.png" />
+    <script type="module" defer src="/src/js/script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <title>Luka Tsinaridze | Front End Dev</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a title="Go to top" href="#" class="home-link header-link__opacity">
+          <img alt="Murat Erkal's Logo" src="/src/img/main-logo.png" width="32" height="28" decoding="async" data-nimg="1" loading="lazy" />
+        </a>
+      </nav>
+      <menu>
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" class="header-theme__opacity" height="30" viewBox="0 0 24 24" color="black" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor">
+          <mask id="circle-mask-1">
+            <rect x="0" y="0" width="100%" height="100%" fill="white"></rect>
+            <circle style="cx: 100%; cy: 0%" r="9" fill="black"></circle>
+          </mask>
+          <circle cx="12" cy="12" fill="black" style="r: 5px" mask="url(#circle-mask-1)"></circle>
+          <g stroke="currentColor" style="opacity: 1">
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </g>
+        </svg>
+      </menu>
+    </header>
+    <main id="top">
+      <section class="hero-introduction">
+        <div class="container-introduction">
+          <div class="main-info__box">
+            <article class="hero-card">
+              <div class="hero-text__box">
+                <h1 class="hero-text__heading">👋 Hey there! I'm <span>Luka</span>.</h1>
+                <p class="hero-text__paragraph">A highly proficient front-end developer with expertise in web design and user experience.</p>
+                <a class="hero-text__link" href="#">Read more</a>
+              </div>
+              <img src="/src/img/main-pfp.jpg" alt="image of laptop" />
+              <div class="social-links__box">
+                <a title="linkedin" target="_blank" rel="noopener" href="https://www.linkedin.com/in/luka-tsinaridze-3889b223a/"><img src="/src/img/linkedin.svg" alt="linkedin" /></a>
+                <a title="github" target="_blank" rel="noopener" href="https://github.com/Luka-Personal"> <img src="/src/img/github.svg" alt="github" /></a>
+                <a title="email" href="mailto: lukatsinaridze@gmail.com"> <img src="/src/img/email.svg" alt="email" /></a>
+              </div>
+            </article>
+            <div class="main-btn__box">
+              <button title="projects button" type="button">Projects</button>
+              <a title="resume page" href="#">Resume</a>
+            </div>
+          </div>
+        </div>
+        <ion-icon class="chevron-down__icon" name="chevron-down-outline"></ion-icon>
+      </section>
+      <section class="skills-section">
+        <div class="container-skills">
+          <div class="main-skills__box">
+            <h1 class="main-title">Familiar With</h1>
+            <ul class="skills-logos">
+              <li style="animation-delay: 0.1s"><img src="/src/img/html-logo.svg" alt="html logo" /></li>
+              <li style="animation-delay: 0.5s"><img src="/src/img/css-logo.svg" alt="css logo" /></li>
+              <li style="animation-delay: 0.9s"><img src="/src/img/js-logo.svg" alt="js logo" /></li>
+              <li style="animation-delay: 1.3s"><img src="/src/img/ts-logo.svg" alt="ts logo" /></li>
+              <li style="animation-delay: 1.7s"><img src="/src/img/netlify-logo.svg" alt="netlify logo" /></li>
+              <li style="animation-delay: 2.1s"><img src="/src/img/photoshop-logo.svg" alt="photoshop logo" /></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="projects-section">
+        <div class="container-projects">
+          <div class="main-projects__box">
+            <h1 class="main-title">Projects</h1>
+            <p class="main-title__p">That I've been working on</p>
+            <ul class="projects-box">
+              <li class="project-box project-box__first">
+                <div class="project-photo__box"><img src="/src/img/web-weather.jpeg" alt="site image" /></div>
+                <article>
+                  <h2 class="project-title">weather<span>.site</span></h2>
+                  <ul class="project-langs">
+                    <li>JavaScript</li>
+                    <li>HTML5</li>
+                    <li>CSS</li>
+                    <li>Leaflet</li>
+                    <li>Geoapify</li>
+                  </ul>
+                  <p>A website that allows you to search for the current weather and forecast in any location using a search bar or your device's geolocation.</p>
+                  <div class="project-btns__box">
+                    <a title="live-link" target="_blank" rel="noopener" href="https://weathersitee.netlify.app">LIVE</a>
+                    <a title="code-link" target="_blank" rel="noopener" href="https://github.com/Luka-Personal/Weather-Forecast-Project">CODE</a>
+                  </div>
+                </article>
+              </li>
+              <li class="project-box project-box__second">
+                <article>
+                  <h2 class="project-title">country<span>.pop</span></h2>
+                  <ul class="project-langs">
+                    <li>TypeScript</li>
+                    <li>HTML5</li>
+                    <li>CSS</li>
+                    <li>REST</li>
+                  </ul>
+                  <p>A game where you will be presented with a set of countries to choose from. If you select the country with the largest population, you will earn points. Otherwise, you will lose points.</p>
+                  <div class="project-btns__box">
+                    <a title="live-link" target="_blank" rel="noopener" href="https://country-pop-game.netlify.app/">LIVE</a>
+                    <a title="code-link" target="_blank" rel="noopener" href="https://github.com/Luka-Personal/Country-Pop-Game">CODE</a>
+                  </div>
+                </article>
+                <div class="project-photo__box"><img src="/src/img/web-pop__game.jpeg" alt="site image" /></div>
+              </li>
+              <li class="project-box project-box__third">
+                <div class="project-photo__box"><img src="/src/img/web-tic__tac.jpeg" alt="site image" /></div>
+                <article>
+                  <h2 class="project-title">Tic-tac<span>.toe</span></h2>
+                  <ul class="project-langs">
+                    <li>JavaScript</li>
+                    <li>HTML5</li>
+                    <li>CSS</li>
+                  </ul>
+                  <p>A game where players take turns placing their marker (either "X" or "O") on a 3x3 grid with the goal of getting three in a row horizontally, vertically, or diagonally.</p>
+                  <div class="project-btns__box">
+                    <a title="live-link" target="_blank" rel="noopener" href="https://country-pop-game.netlify.app/">LIVE</a>
+                    <a title="code-link" target="_blank" rel="noopener" href="https://github.com/Luka-Personal/Country-Pop-Game">CODE</a>
+                  </div>
+                </article>
+              </li>
+              <li class="project-box project-box__fourth">
+                <article>
+                  <h2 class="project-title">git<span>.hub</span></h2>
+                  <ul class="project-langs">
+                    <li>None</li>
+                  </ul>
+                  <p>A site where you can check out all my projects. This is a platform where you can showcase and collaborate on coding projects.</p>
+                  <div class="project-btns__box">
+                    <a title="live-link" target="_blank" rel="noopener" href="https://github.com/Luka-Personal">GITHUB</a>
+                  </div>
+                </article>
+                <div class="project-photo__box"><img src="/src/img/web-github.jpeg" alt="site image" /></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="detailed-introduction">
+        <div class="detailed-introduction__container">
+          <div class="main-detailed-info__box">
+            <h1 class="main-title">more about me</h1>
+            <h1 class="secondary-title">Hi again! I'm Luka Tsinaridze.</h1>
+            <p class="secondary-title__p">As you know by now.</p>
+            <article>
+              <p>
+                I find that <span class="article-part__green">coding</span> and instructing have a lot in common as they both involve a continuous learning process in which achieving the desired outcome is highly rewarding. I am passionate about discovering new technologies and utilizing them to
+                develop useful applications. The difficulties that come with coding have become a source of enjoyment for me, taking up a significant amount of my focus and attention.
+              </p>
+              <p>I've been fascinated with <span class="article-part__purple">design</span> for many years now. My passion has become conceptualizing ideas and bringing them to some kind of fruition.</p>
+              <p>Also, I live and breathe <span class="article-part__orange">music</span>. Any time of the day, you'll most probably find me with earbuds in my ears. I also have a great love for creating music, although I am very much an amateur.</p>
+              <p>As a <span class="article-part__blue">student</span>, I have had the pleasure of studying and interacting with many students, and it was an experience that taught me a lot about programming and design.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <footer class="page-footer">
+        <div class="page-footer__container">
+          <h1 class="main-title footer">
+            Would love to connect <span><ion-icon name="heart-outline"></ion-icon></span>
+          </h1>
+          <p class="main-title__p">Let's connect!</p>
+          <div class="social-links__box footer">
+            <a title="linkedin" target="_blank" rel="noopener" href="https://www.linkedin.com/in/luka-tsinaridze-3889b223a/"><img src="/src/img/linkedin.svg" alt="linkedin" /></a>
+            <a title="github" target="_blank" rel="noopener" href="https://github.com/Luka-Personal"> <img src="/src/img/github.svg" alt="github" /></a>
+            <a title="email" href="mailto: lukatsinaridze@gmail.com"> <img src="/src/img/email.svg" alt="email" /></a>
+          </div>
+          <a class="back-totop__link" title="Back to top" href="#top"
+            >Back to top<span><ion-icon name="arrow-up-outline"></ion-icon></span>
+          </a>
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>

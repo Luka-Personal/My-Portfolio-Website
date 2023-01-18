@@ -1,0 +1,15 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "my portfolio website",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html --dist-dir ./dist"
+  },
+  "author": "Luka Tsinaridze",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.8.2",
+    "typescript": "^4.9.4"
+  }
+}
