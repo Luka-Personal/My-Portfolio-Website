@@ -58,7 +58,6 @@ header {
   border-radius: 9999rem;
   display: flex;
   justify-content: center;
-  /* flex-wrap: wrap; */
   align-items: center;
   position: relative;
   box-shadow: 0 0 0 2px #d4d4d8;
@@ -182,14 +181,14 @@ header {
   display: flex;
   justify-content: center;
   padding: 9.6rem;
-  display: none;
-  /* up */
 }
 .skills-logos {
   padding-top: 5rem;
   display: flex;
   list-style-type: none;
+  justify-content: center;
   gap: 4rem;
+  flex-wrap: wrap;
 }
 .skills-logos li img {
   width: 3.5rem;

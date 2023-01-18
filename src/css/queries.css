@@ -40,10 +40,20 @@
     padding: 2rem;
     gap: 4rem;
   }
-  .container-skills,
+  .container-skills {
+    padding: 7rem;
+  }
   .container-projects,
   .detailed-introduction__container {
     padding: 6.4rem 0;
+  }
+  nav a img {
+    width: 3.2rem;
+    height: 3.2rem;
+  }
+  menu svg {
+    width: 3.2rem;
+    height: 3.2rem;
   }
 }
 /* 380px */
@@ -73,13 +83,10 @@
     flex-wrap: wrap;
     gap: 1.5rem;
   }
-  /* .main-detailed-info__box article p:first-child {
-    overflow-y: hidden;
-    height: 10rem;
-    margin-bottom: 2rem;
-    transition: all 0.3s;
+}
+/* 250px */
+@media (max-width: 15.625em) {
+  html {
+    font-size: 40%;
   }
-  .main-detailed-info__box article p:first-child:hover {
-    height: 100%;
-  } */
 }
