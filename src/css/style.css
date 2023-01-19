@@ -117,7 +117,9 @@ header {
   gap: 4rem;
   align-items: center;
 }
-.main-btn__box button {
+.main-link__rainbow:link,
+.main-link__rainbow:visited {
+  text-decoration: none;
   background-color: #000;
   color: #fff;
   font-size: 1.8rem;
@@ -129,7 +131,7 @@ header {
   position: relative;
   font-weight: 600;
 }
-.main-btn__box button::after {
+.main-link__rainbow::after {
   content: "";
   position: absolute;
   border-radius: 999rem;
@@ -144,14 +146,16 @@ header {
   background: linear-gradient(#14b8a6, #3b82f6, #a855f7);
   opacity: 0;
 }
-.main-btn__box button:hover::after {
+.main-link__rainbow:hover::after {
   opacity: 1;
 }
-.main-btn__box button:hover {
+
+.main-link__rainbow:hover,
+.main-link__rainbow:active {
   background-color: transparent;
 }
-.main-btn__box a:link,
-.main-btn__box a:visited {
+.main-link__normal:link,
+.main-link__normal:visited {
   color: #000;
   border-radius: 999rem;
   padding: 1.2rem 4.5rem;
@@ -161,8 +165,8 @@ header {
   box-shadow: 0 0 0 2px #bfbfc9;
   transition: all 0.25s ease-in-out;
 }
-.main-btn__box a:hover,
-.main-btn__box a:active {
+.main-link__normal:hover,
+.main-link__normal:active {
   box-shadow: 0 0 0 2px #9e9ead;
 }
 .chevron-down__icon {

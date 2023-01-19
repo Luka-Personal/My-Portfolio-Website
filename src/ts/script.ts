@@ -1,4 +1,5 @@
 import { MOUSE_OVER_ANIM_STRENGTH } from "./config";
+import { CV_LINK } from "./config";
 // ###########################
 // ADDNIG MOUSE HOVER ANIM
 // ###########################
@@ -68,3 +69,10 @@ const skillsAnim = new MainObserver(skillLogos, { root: null, threshold: 0 }, ()
   skillLogos.querySelectorAll(`li`).forEach((li) => li.classList.add(`skills-logos__anim`));
 });
 const projectsAnim = new MainObserver(Array.from(projectBoxes), { root: null, threshold: 0 }, (target: HTMLElement) => (target.style.opacity = `1`));
+// ###########################
+// JUST ANCHOR/LINK CONFIGS
+// ###########################
+const cvAnchorElement = document.querySelector(`.main-link__normal`) as HTMLAnchorElement;
+(() => {
+  cvAnchorElement.href = CV_LINK;
+})();
