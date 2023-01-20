@@ -101,10 +101,10 @@ class DarkModeListener {
     this.checkLocalStorage();
   }
   private matchMediaOnLoad() {
-    if (this.matchDark.matches) {
+    if (this.matchDark.matches && this.localStorageDark !== `dark`) {
       this.modeDark();
     }
-    if (!this.matchLight.matches) {
+    if (!this.matchDark.matches && this.localStorageDark !== `dark`) {
       this.modeLight();
     }
   }
