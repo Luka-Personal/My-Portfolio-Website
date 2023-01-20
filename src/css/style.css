@@ -1,3 +1,16 @@
+:root {
+  --bg-main__color: #e4e4e7;
+  --icon-header__color: black;
+  --icon-header__brightness: 0;
+  --bg-hero__color: #d4d4d8, #e4e4e7, #d4d4d8;
+  --border-color: #d4d4d8;
+  --projects-text__color: #52525b;
+  --text-color__light: #555;
+  --text-color: #000;
+  --project-btn__color: #52525b;
+  --social-links__contrast: 15;
+  --read-more__color: #27272a;
+}
 * {
   padding: 0;
   margin: 0;
@@ -9,8 +22,22 @@ html {
 }
 body {
   overflow-x: hidden;
-  background-color: rgb(228 228 231);
+  background-color: var(--bg-main__color);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+body.dark {
+  --bg-main__color: rgb(24 24 27);
+  --bg-skills__brightness: 0.2;
+  --icon-header__brightness: 1;
+  --icon-header__color: #fff;
+  --bg-hero__color: #18181b, #27272a, #18181b;
+  --text-color__light: #fff;
+  --text-color: #fff;
+  --border-color: #3f3f46;
+  --projects-text__color: #d4d4d8;
+  --project-btn__color: #222;
+  --social-links__contrast: 3;
+  --read-more__color: #fff;
 }
 /* ###### */
 /* HEADER */
@@ -23,23 +50,28 @@ header {
   padding: 2.45rem 2.4rem 0 2.4rem;
   z-index: 99999;
 }
-.header-link__opacity,
-.header-theme__opacity {
+.header-link__icon,
+.header-theme__icon {
   opacity: 0.5;
   transition: opacity 0.5s;
   cursor: pointer;
   text-decoration: none;
 }
-.header-link__opacity:link,
-.header-link__opacity:visited {
-  filter: brightness(0);
+.header-link__icon:link,
+.header-link__icon:visited {
+  filter: brightness(var(--icon-header__brightness));
 }
-.header-link__opacity:hover,
-.header-link__opacity:active {
-  filter: brightness(0);
+.header-link__icon:hover,
+.header-link__icon:active {
   opacity: 1;
 }
-.header-theme__opacity:hover {
+.header-theme__icon,
+.header-theme__icon circle {
+  stroke: var(--icon-header__color);
+  color: var(--icon-header__color);
+  fill: var(--icon-header__color);
+}
+.header-theme__icon:hover {
   opacity: 1;
 }
 /* HERO/INTRODUCTION */
@@ -53,17 +85,18 @@ header {
   align-items: center;
 }
 .hero-card {
-  background-image: linear-gradient(to top right, #e4e4e7, #d4d4d8);
+  background-image: linear-gradient(to top right, var(--bg-hero__color));
   padding: 3.5rem;
   border-radius: 9999rem;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  box-shadow: 0 0 0 2px #d4d4d8;
+  box-shadow: 0 0 0 2px var(--border-color);
 }
 .hero-text__box {
   max-width: 48.4rem;
+  color: var(--text-color);
 }
 .hero-text__heading {
   font-size: 3.6rem;
@@ -80,7 +113,7 @@ header {
 .hero-text__link {
   margin-top: 2rem;
   display: block;
-  color: rgb(39 39 42);
+  color: var(--read-more__color);
   font-size: 1.5rem;
 }
 .hero-card img {
@@ -103,7 +136,7 @@ header {
 .social-links__box a:link,
 .social-links__box a:visited {
   cursor: pointer;
-  filter: saturate(0) contrast(15);
+  filter: saturate(0) contrast(var(--social-links__contrast));
   transition: filter 0.2s ease-in-out;
 }
 .social-links__box a:hover,
@@ -120,8 +153,9 @@ header {
 .main-link__rainbow:link,
 .main-link__rainbow:visited {
   text-decoration: none;
-  background-color: #000;
-  color: #fff;
+  background-color: var(--bg-main__color);
+  filter: invert();
+  color: var(--text-color);
   font-size: 1.8rem;
   border: none;
   border-radius: 999rem;
@@ -133,6 +167,7 @@ header {
 }
 .main-link__rainbow::after {
   content: "";
+  filter: invert();
   position: absolute;
   border-radius: 999rem;
   top: 0;
@@ -156,7 +191,7 @@ header {
 }
 .main-link__normal:link,
 .main-link__normal:visited {
-  color: #000;
+  color: var(--text-color__light);
   border-radius: 999rem;
   padding: 1.2rem 4.5rem;
   text-decoration: none;
@@ -167,10 +202,11 @@ header {
 }
 .main-link__normal:hover,
 .main-link__normal:active {
-  box-shadow: 0 0 0 2px #9e9ead;
+  box-shadow: 0 0 0 2px var(--border-color);
 }
 .chevron-down__icon {
   left: 50%;
+  color: var(--text-color__light);
   bottom: 1rem;
   position: absolute;
   width: 3rem;
@@ -180,8 +216,19 @@ header {
 /* ############## */
 /* SKILLS SECTION */
 /* ############## */
-.container-skills {
+.container-skills::before {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: url(/src/img/skills-bg.svg);
+  filter: brightness(var(--bg-skills__brightness));
+}
+.container-skills {
+  position: relative;
   display: flex;
   justify-content: center;
   padding: 9.6rem;
@@ -248,7 +295,7 @@ header {
   text-align: center;
   font-family: Indie Flower, cursive;
   font-size: 1.8rem;
-  color: #555;
+  color: var(--projects-text__color);
   margin-top: 1rem;
 }
 .projects-box {
@@ -304,20 +351,21 @@ header {
 .project-langs {
   list-style-type: none;
   display: flex;
+
   gap: 1rem;
   margin-top: 1.3rem;
 }
 .project-langs li {
   font-size: 1.2rem;
-  color: rgb(113 113 122);
-  box-shadow: 0 0 0 1px #d4d4d8;
+  color: var(--projects-text__color);
+  box-shadow: 0 0 0 1px var(--border-color);
   border-radius: 1.5rem;
   padding: 0.2rem 0.6rem;
   background-color: rgba(125, 212, 252, 0.12);
 }
 .project-box p {
   font-size: 1.8rem;
-  color: rgb(82 82 91);
+  color: var(--projects-text__color);
   margin-top: 2rem;
   font-weight: 600;
 }
@@ -334,7 +382,7 @@ header {
 .project-btns__box a:visited {
   border: none;
   padding: 0.9rem 1.9rem;
-  color: rgb(82 82 91);
+  color: var(--project-btn__color);
   border-radius: 1.5rem;
   cursor: pointer;
   background-color: #fff;
@@ -377,26 +425,37 @@ header {
 /* ##################### */
 /* DETAILED INTRODUCTION */
 /* ##################### */
-.detailed-introduction__container {
+.detailed-introduction__container::before {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: url(/src/img/more-bg.svg);
   background-size: cover;
+  filter: brightness(var(--bg-skills__brightness));
+}
+.detailed-introduction__container {
+  position: relative;
   padding: 9.6rem 0;
   text-align: center;
 }
 .secondary-title {
   margin-top: 1rem;
   font-size: 2.4rem;
-  color: rgb(39 39 42);
+  color: var(--text-color);
 }
 .secondary-title__p {
   margin-top: 0.5rem;
-  color: rgb(82 82 91);
+  color: var(--projects-text__color);
   font-size: 1.4rem;
 }
 .main-detailed-info__box article {
   max-width: 600px;
   margin: 0 auto;
-  color: rgb(113 113 122);
+  color: var(--projects-text__color);
   font-size: 1.7rem;
   margin-top: 3rem;
   line-height: 1.7;
@@ -433,7 +492,7 @@ header {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  color: #555;
+  color: var(--text-color);
 }
 .page-footer__container {
   padding: 4rem 4rem 1.5rem 4rem;

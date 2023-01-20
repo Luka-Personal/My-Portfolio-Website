@@ -17,15 +17,18 @@ function binder(_: any, _2: any, descriptor: PropertyDescriptor) {
 }
 const projectContainer = document.querySelectorAll<HTMLDivElement>(`.project-box`);
 class MouseTrackerAnim {
-  constructor(private strengthAnim: number, private toAnimateEls: HTMLElement[]) {
+  constructor(private strengthAnim: number, private toAnimateEls: HTMLElement[], private clearOnMouseOut: boolean) {
     if (Array.isArray(this.toAnimateEls)) {
       this.toAnimateEls.forEach((el) => {
-        el.addEventListener(`mousemove`, this.callback);
+        el.addEventListener(`mousemove`, this.callbackHover);
+        if (this.clearOnMouseOut) {
+          el.addEventListener(`mouseout`, this.callbackOut);
+        }
       });
     }
   }
   @binder
-  callback(e: any) {
+  callbackHover(e: any) {
     let bounds = e.target.closest(`.project-box`).getBoundingClientRect();
     let xPos = e.clientX - bounds.left;
     let yPos = e.clientY - bounds.top;
@@ -33,8 +36,11 @@ class MouseTrackerAnim {
     let contHeight = e.target.closest(`.project-box`).clientHeight / 2;
     e.target.closest(`.project-box`).style.transform = `rotateX(${(contWidth - xPos) / this.strengthAnim}deg) rotateY(${(contHeight - yPos) / this.strengthAnim}deg) perspective(1px) translateZ(0)`;
   }
+  callbackOut(e: any) {
+    e.target.closest(`.project-box`).style.transform = `perspective(1px) translateZ(0)`;
+  }
 }
-const mouseOverAnim = new MouseTrackerAnim(MOUSE_OVER_ANIM_STRENGTH, Array.from(projectContainer));
+const mouseOverAnim = new MouseTrackerAnim(MOUSE_OVER_ANIM_STRENGTH, Array.from(projectContainer), true);
 // ###########################
 // ADDING ONLOAD OBSERVER ANIM
 // ###########################
@@ -76,3 +82,72 @@ const cvAnchorElement = document.querySelector(`.main-link__normal`) as HTMLAnch
 (() => {
   cvAnchorElement.href = CV_LINK;
 })();
+// ###########################
+// TESTING
+// ###########################
+class DarkModeListener {
+  private rootElement = document.querySelector(`:root`) as HTMLElement;
+  private headerMenuBtn = document.querySelector(`menu`) as HTMLMenuElement;
+  private matchDark = window.matchMedia(`(prefers-color-scheme: dark)`);
+  private matchLight = window.matchMedia(`(prefers-color-scheme: light)`);
+  private rootElementStyle = this.rootElement.style;
+  private localStorageLight = localStorage.getItem(`light-theme__key`);
+  private localStorageDark = localStorage.getItem(`dark-theme__key`);
+  constructor() {
+    this.rootElementStyle.colorScheme = `light`;
+    this.matchMediaOnLoad();
+    this.matchDark.addEventListener(`change`, this.matchMediaCb);
+    this.headerMenuBtn.addEventListener(`click`, this.headerMenuBtnCb);
+    this.checkLocalStorage();
+  }
+  private matchMediaOnLoad() {
+    if (this.matchDark.matches) {
+      this.modeDark();
+    }
+    if (!this.matchLight.matches) {
+      this.modeLight();
+    }
+  }
+  private modeDark() {
+    this.rootElement.style.colorScheme = `dark`;
+    document.body.classList.add(`dark`);
+  }
+  private modeLight() {
+    this.rootElement.style.colorScheme = `light`;
+    document.body.classList.remove(`dark`);
+  }
+  @binder
+  private matchMediaCb(e: MediaQueryListEvent) {
+    if (e.matches && this.localStorageLight !== `light`) {
+      this.modeDark();
+    }
+    if (!e.matches && this.localStorageDark !== `dark`) {
+      this.modeLight();
+    }
+  }
+  private toggleScheme() {
+    document.body.classList.toggle(`dark`);
+    this.rootElement.style.colorScheme = this.rootElement.style.colorScheme === `light` ? `dark` : `light`;
+  }
+  @binder
+  private headerMenuBtnCb() {
+    this.toggleScheme();
+    if (this.rootElementStyle.colorScheme === `light`) {
+      localStorage.removeItem(`dark-theme__key`);
+      localStorage.setItem(`light-theme__key`, `light`);
+    }
+    if (this.rootElementStyle.colorScheme === `dark`) {
+      localStorage.removeItem(`light-theme__key`);
+      localStorage.setItem(`dark-theme__key`, `dark`);
+    }
+  }
+  private checkLocalStorage() {
+    if (this.localStorageDark === `dark`) {
+      this.modeDark();
+    }
+    if (this.localStorageLight === `light`) {
+      this.modeLight();
+    }
+  }
+}
+const themeLogic = new DarkModeListener();

@@ -3,7 +3,7 @@
   text-transform: uppercase;
   text-align: center;
   font-size: 1.8rem;
-  color: #a1a1aa;
+  color: var(--text-color__light);
   letter-spacing: 0.3rem;
 }
 .project-title {
@@ -14,7 +14,7 @@
   font-size: 3.6rem;
 }
 .project-title span {
-  color: #666;
+  color: var(--projects-text__color);
   font-size: 3rem;
   font-style: italic;
   font-weight: 300;

@@ -22,18 +22,18 @@
   <body>
     <header>
       <nav>
-        <a title="Go to top" href="#" class="home-link header-link__opacity">
+        <a title="Go to top" href="#" class="header-link__icon">
           <img alt="Luka's Logo" src="/src/img/main-logo.png" width="32" height="28" decoding="async" data-nimg="1" loading="lazy" />
         </a>
       </nav>
       <menu>
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" class="header-theme__opacity" height="30" viewBox="0 0 24 24" color="black" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor">
+        <svg class="header-theme__icon" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <mask id="circle-mask-1">
             <rect x="0" y="0" width="100%" height="100%" fill="white"></rect>
-            <circle style="cx: 100%; cy: 0%" r="9" fill="black"></circle>
+            <circle style="cx: 100%; cy: 0%" r="9" fill="white"></circle>
           </mask>
           <circle cx="12" cy="12" fill="black" style="r: 5px" mask="url(#circle-mask-1)"></circle>
-          <g stroke="currentColor" style="opacity: 1">
+          <g stroke="currentColor">
             <line x1="12" y1="1" x2="12" y2="3"></line>
             <line x1="12" y1="21" x2="12" y2="23"></line>
             <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
@@ -54,7 +54,7 @@
               <div class="hero-text__box">
                 <h1 class="hero-text__heading">👋 Hey there! I'm <span>Luka</span>.</h1>
                 <p class="hero-text__paragraph">A highly proficient front-end developer with expertise in web design and user experience.</p>
-                <a class="hero-text__link" href="#">Read more</a>
+                <a class="hero-text__link" href="#detailed-introduction__container___id">Read more</a>
               </div>
               <img src="/src/img/main-pfp.jpg" alt="image of laptop" />
               <div class="social-links__box">
@@ -125,10 +125,10 @@
                     <a title="code-link" target="_blank" rel="noopener" href="https://github.com/Luka-Personal/Country-Pop-Game">CODE</a>
                   </div>
                 </article>
-                <div class="project-photo__box"><img src="/src/img/web-pop__game.jpeg" alt="site image" /></div>
+                <div class="project-photo__box"><img loading="lazy" src="/src/img/web-pop__game.jpeg" alt="site image" /></div>
               </li>
               <li class="project-box project-box__third">
-                <div class="project-photo__box"><img src="/src/img/web-tic__tac.jpeg" alt="site image" /></div>
+                <div class="project-photo__box"><img loading="lazy" src="/src/img/web-tic__tac.jpeg" alt="site image" /></div>
                 <article>
                   <h2 class="project-title">Tic-tac<span>.toe</span></h2>
                   <ul class="project-langs">
@@ -154,14 +154,14 @@
                     <a title="live-link" target="_blank" rel="noopener" href="https://github.com/Luka-Personal">GITHUB</a>
                   </div>
                 </article>
-                <div class="project-photo__box"><img src="/src/img/web-github.jpeg" alt="site image" /></div>
+                <div class="project-photo__box"><img loading="lazy" src="/src/img/web-github.jpeg" alt="site image" /></div>
               </li>
             </ul>
           </div>
         </div>
       </section>
       <section class="detailed-introduction">
-        <div class="detailed-introduction__container">
+        <div id="detailed-introduction__container___id" class="detailed-introduction__container">
           <div class="main-detailed-info__box">
             <h1 class="main-title">more about me</h1>
             <h1 class="secondary-title">Hi again! I'm Luka Tsinaridze.</h1>
