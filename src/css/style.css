@@ -43,10 +43,15 @@ body.dark {
 header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   position: fixed;
   width: 100%;
   padding: 2.45rem 2.4rem 0 2.4rem;
   z-index: 99999;
+}
+.header-link__icon img {
+  width: 3.2rem;
+  height: 3.2rem;
 }
 .header-link__icon:link,
 .header-link__icon:visited {
