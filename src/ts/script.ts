@@ -88,6 +88,8 @@ const cvAnchorElement = document.querySelector(`.main-link__normal`) as HTMLAnch
 class DarkModeListener {
   private rootElement = document.querySelector(`:root`) as HTMLElement;
   private headerMenuBtn = document.querySelector(`menu`) as HTMLMenuElement;
+  private darkIcon = document.querySelector(`.header-theme__icon.dark`) as HTMLButtonElement;
+  private lightIcon = document.querySelector(`.header-theme__icon.light`) as HTMLButtonElement;
   private matchDark = window.matchMedia(`(prefers-color-scheme: dark)`);
   private matchLight = window.matchMedia(`(prefers-color-scheme: light)`);
   private rootElementStyle = this.rootElement.style;
@@ -103,10 +105,24 @@ class DarkModeListener {
   private matchMediaOnLoad() {
     if (this.matchDark.matches && this.localStorageDark !== `dark`) {
       this.modeDark();
+      this.iconDark();
     }
     if (!this.matchDark.matches && this.localStorageDark !== `dark`) {
       this.modeLight();
+      this.iconLight();
     }
+  }
+  private toggleIcon() {
+    this.darkIcon.classList.toggle(`hidden-icon`);
+    this.lightIcon.classList.toggle(`hidden-icon`);
+  }
+  private iconDark() {
+    this.lightIcon.classList.remove(`hidden-icon`);
+    this.darkIcon.classList.add(`hidden-icon`);
+  }
+  private iconLight() {
+    this.darkIcon.classList.remove(`hidden-icon`);
+    this.lightIcon.classList.add(`hidden-icon`);
   }
   private modeDark() {
     this.rootElement.style.colorScheme = `dark`;
@@ -120,9 +136,11 @@ class DarkModeListener {
   private matchMediaCb(e: MediaQueryListEvent) {
     if (e.matches && this.localStorageLight !== `light`) {
       this.modeDark();
+      this.iconDark();
     }
     if (!e.matches && this.localStorageDark !== `dark`) {
       this.modeLight();
+      this.iconLight();
     }
   }
   private toggleScheme() {
@@ -132,6 +150,8 @@ class DarkModeListener {
   @binder
   private headerMenuBtnCb() {
     this.toggleScheme();
+    this.toggleIcon();
+
     if (this.rootElementStyle.colorScheme === `light`) {
       localStorage.removeItem(`dark-theme__key`);
       localStorage.setItem(`light-theme__key`, `light`);
@@ -144,9 +164,11 @@ class DarkModeListener {
   private checkLocalStorage() {
     if (this.localStorageDark === `dark`) {
       this.modeDark();
+      this.iconDark();
     }
     if (this.localStorageLight === `light`) {
       this.modeLight();
+      this.iconLight();
     }
   }
 }
